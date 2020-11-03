@@ -50,6 +50,16 @@ REGISTRATION:
 
     6- After coding the login.html, we need to go throw views.py and import a lot af django libraries:
 
+        from django.contrib.auth import authenticate, login, logout
+        from django.core.urlresolvers import reverse
+        from django.contrib.auth.decorators import login_required
+        from django.http import HttpResponseRedirect, HttpResponse
+
+    7- After that we start writing our view (we need to be sure that the view doesn't share a name with the library name);
+
+    8- 
+
+
 
 
 
