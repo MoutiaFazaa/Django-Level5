@@ -51,7 +51,7 @@ REGISTRATION:
     6- After coding the login.html, we need to go throw views.py and import a lot af django libraries:
 
         from django.contrib.auth import authenticate, login, logout
-        from django.core.urlresolvers import reverse
+        from django.urls import reverse # no more django.core.urlresolvers in django2
         from django.contrib.auth.decorators import login_required
         from django.http import HttpResponseRedirect, HttpResponse
 
@@ -64,6 +64,8 @@ REGISTRATION:
         @login_required
 
     10- And we added some logic of login and logout to our base.html;
+
+    11- Run the server :.
 
 
 
