@@ -57,7 +57,15 @@ REGISTRATION:
 
     7- After that we start writing our view (we need to be sure that the view doesn't share a name with the library name);
 
-    8- 
+    8- Logout view;
+
+    9- We need to make sure that only the user who logged in , can logout so we will use a decorator to be sure that user is loggedin, so we add this befor the logout view: 
+
+        @login_required
+
+    10- And we added some logic of login and logout to our base.html;
+
+
 
 
 
