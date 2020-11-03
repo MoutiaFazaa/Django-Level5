@@ -1,5 +1,5 @@
 PASSWORD:
-    1- user authentification: we need  to add to settings.py (installed_apps) "django.contrib.auth" and "django.contrib.contenttypes" AND migrate after added them;
+    1- user authentification: we need  to add to settings.py (installed_apps) "django.contrib.auth" and "django.contrib.contenttypes" AND migrate after adding them;
     2- Never store passwords as plain text!!!;
     3- We will use PBKDF2 algorithm with SHA256 hash (built-in to django);
     4- we need to use also bcrypt and Argon2(opensource alghorithm haching);
@@ -30,9 +30,30 @@ USERS MODELS:
         from basic_app.models import UserProfileInfo
         # Register your models here.
 
-        admin.site.Register(UserProfileInfo)
+        admin.site.register(UserProfileInfo)
 
-    5- 
+    5- Then we need to create our templates, urls mapping;
+    
+
+REGISTRATION:
+
+    1- Sometimes we need to save register forms data, other time we will set "commit=False" so we can manipulate the data before saving it to the database;
+
+    2- We can check documentation for forms inputs, for example we can modifie 'the portfolio site' to validate inputs without the https:// ;
+
+    3- to acceed to admin site, we need to CREATE A SUPER USER:
+    -> python3 mage.py createsuperuser ;
+
+    4- Before coding login view, we need to add LOGIN_URL on the buttom of settings.py;
+
+    5- If we need to make login for some views , we need to call a simple decorator;
+
+    6- After coding the login.html, we need to go throw views.py and import a lot af django libraries:
+
+
+
+
+
 
 
     
