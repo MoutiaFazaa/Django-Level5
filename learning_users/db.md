@@ -55,3 +55,44 @@ We will build a database that contains two tables (photos AND users):
         url VARCHAR(200),
         user_id INTEGER REFERENCES users(id)
         );
+
+    Now we will insert values in photos table:
+
+        INSERT INTO photos(url, user_id)
+        VALUES
+        (
+            ('hhtp://one.jpeg', 4),
+            ('hhtp://two.jpeg', 1),
+            ('hhtp://25.jpeg', 1),
+            ('hhtp://36.jpeg', 1),
+            ('hhtp://754.jpeg', 2),
+            ('hhtp://35.jpeg', 3),
+            ('hhtp://256.jpeg', 4)
+        );
+
+    Running queries on associated data:
+
+        SELECT * FROM photos WHERE user_id = 4;
+
+        using JOIN:
+        SELECT * FROM photos 
+        JOIN users ON users.id = photos.user_id;
+
+Constraints around deletion:
+
+    ON Delete Option:
+    1- ON DELETE RESTRICT = THROW AN ERROR
+    2- ON DELETE NO ACTION = THROW AN ERROR
+    3- ON DELETE CASCADE = DELETE THE PHOTO TOO!
+    4- ON DELETE SET NULL = SET THE "user_id" OF THE PHOTO TO "NULL"
+    5- ON DELETE SET DEFAULT = SET "user_id" OF THE PHOTO TO A DEFAULT VALUE, IF ONE IS PROVIDED
+
+
+    to configure our delete parameter see exemple:
+
+        CREATE TABLE photos(
+        id SERIAL PRIMARY KEY,
+                #serial tells pgs to generate a serial id, we put just a username and pgs generates an id
+        url VARCHAR(200),
+        user_id INTEGER REFERENCES users(id) ON DELETE CASCADE
+        );
