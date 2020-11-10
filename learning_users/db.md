@@ -89,10 +89,28 @@ Constraints around deletion:
 
 
     to configure our delete parameter see exemple:
-
+     **On delete cascade:
         CREATE TABLE photos(
         id SERIAL PRIMARY KEY,
                 #serial tells pgs to generate a serial id, we put just a username and pgs generates an id
         url VARCHAR(200),
         user_id INTEGER REFERENCES users(id) ON DELETE CASCADE
         );
+
+     **on delete set null:
+
+        CREATE TABLE photos(
+        id SERIAL PRIMARY KEY,
+                #serial tells pgs to generate a serial id, we put just a username and pgs generates an id
+        url VARCHAR(200),
+        user_id INTEGER REFERENCES users(id) ON DELETE SET NULL
+        );
+
+
+Now we will add a table called comments that will have a relationship with users and photos:
+
+    JOINS: 1- produces values by mergin together rows from different related tables
+           2- Use a join most times that you're asked to find data that involves multiple resources
+
+    AGGREGATION: 1- Looks at many rows and calculates a single value
+                 2- Words like 'most', 'average', 'least' are a sign that you need to use an aggregation
